@@ -134,10 +134,18 @@ for url in queued_urls:
     url_soup = BeautifulSoup(url_response.text,'lxml')
     url_tags = url_soup.find_all('header', class_ = "css-vutdsw efcnut33" )
     url_tags.append(url_soup.find('header', class_ = "css-1qz5jgi efcnut36" ))
+    room_n = url_soup.find('div', attrs={'aria-label':'Liczba pokoi'})
+    room_n = int(room_n.contents[2].contents[0].text)
+    metresq = url_soup.find('div', attrs={'aria-label':'Powierzchnia'})
+    expenses = url_soup.find('div', attrs={'aria-label':'Czynsz'})
     tag = url_tags[0]
     print(unidecode(tag.h1.contents[0]))
     print(url)
+    print(metresq.contents[4].text)
+    expenses=unidecode(expenses.contents[2].text)
+    if expenses != "Czynsz":
+        expenses = expenses.replace(' zl/miesiac', '')
+        print(expenses)
     price=unidecode(str(tag.strong.contents[0])).replace('zl','')
     print(int(price.replace(" ","")))
     print("-----------------------")
-
