@@ -22,33 +22,35 @@ def add_total_cost(data):
         price = item['Place-Info']['Price']
         monthly_spending = item['Place-Info']['Monthly Spending']
         total_cost = price + monthly_spending
-        item['Place-Info']['Total Cost'] = round(total_cost, 2)
+        item['Place-Info']['Total Cost'] = total_cost
     return data
+
 def add_yearly_cost(data):
     for item in data:
         total_cost = item['Place-Info']['Total Cost']
         yearly_cost = total_cost * 12
-        item['Place-Info']['Yearly Cost'] = round(yearly_cost, 2)
+        item['Place-Info']['Yearly Cost'] = yearly_cost
     return data
 
-def add_yearly_cost_per_area(data):
+def add_yearly_price_per_area(data):
     for item in data:
         yearly_cost = item['Place-Info']['Yearly Cost']
         area = item['Place-Info']['Area of Place']
         yearly_price_per_area = yearly_cost / area if area != 0 else 0
         item['Place-Info']['Yearly Price/Area'] = round(yearly_price_per_area, 2)
     return data
+
 def create_table_from_json(json_file):
     # Read data from JSON file
     with open(json_file, 'r') as f:
         data = json.load(f)
 
-    # Add Price/Area, Price/Room, Total Cost, yearly cot to each dictionary
+    # Add Price/Area, Price/Room, Total Cost, Yearly Cost, and Yearly Price/Area to each dictionary
     data = add_price_per_area(data)
     data = add_price_per_room(data)
     data = add_total_cost(data)
     data = add_yearly_cost(data)
-    data = add_yearly_cost_per_area(data)
+    data = add_yearly_price_per_area(data)
 
     # Create DataFrame from the JSON data
     df = pd.DataFrame([{
@@ -59,8 +61,9 @@ def create_table_from_json(json_file):
         'Price': item['Place-Info']['Price'],
         'Price/Area': item['Place-Info']['Price/Area'],
         'Price/Room': item['Place-Info']['Price/Room'],
-        'Total Cost': item['Place-Info']['Total Cost']
-        'Yearly Cost': item['Place-Info']['Yearly Cost']
+        'Total Cost': item['Place-Info']['Total Cost'],
+        'Yearly Cost': item['Place-Info']['Yearly Cost'],
+        'Yearly Price/Area': item['Place-Info']['Yearly Price/Area']
     } for item in data])
 
     # Save DataFrame as an HTML file
