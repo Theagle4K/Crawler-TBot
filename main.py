@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from unidecode import unidecode
 import json, codecs
-from tables import create_table_from_json
+
 
 def Reachable_URL(respones):
     # => https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
@@ -182,7 +182,6 @@ url = scrap_links(respondlink, DOMAIN, headers_, queued_urls)
 print("\n")
 main(element_list, url)
 ouput_data(element_list)
-
 
 # Create table from data.json
 df = create_table_from_json('data.json')
