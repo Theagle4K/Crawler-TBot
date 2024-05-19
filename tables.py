@@ -16,4 +16,4 @@ def create_table_from_json(json_file):
         'Price': item['Place-Info']['Price']
     } for item in data])
 
-    return df.to_html()
+    return df.to_html('data.html')
