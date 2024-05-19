@@ -3,6 +3,7 @@ import requests
 import csv
 import string
 from unidecode import unidecode
+import json, codecs
 
 def Reachable_URL(respones):
     #=> https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
@@ -52,14 +53,6 @@ def Reachable_URL(respones):
     # 511 Network Authentication Required
     if status_code == 511: return False
 
-def Load_URL(url):
-    try:
-        response = requests.get(url)
-        if Reachable_URL(response):
-            return response
-        else: return None
-    except: return None
-
 def Clean_Link(link,DOMAIN):
     #Fix relative URL
     if 'http' not in link:
@@ -75,41 +68,43 @@ def Clean_Link(link,DOMAIN):
         link = link.split('#', 1)[0]      
     return link
 
-def Check_Link_Validity(link):
-    # Not valid if: Empty, a Telephone Link or a Mail Link
-    if link == '': return False
-    if 'tel:' in link: return False
-    if 'mailto:' in link: return False
-    return True
+def scrap_links(soup_divs,DOMAIN,headers_,queued_urls):
+    for listing in soup_divs:
+        link=Clean_Link(listing['href'],DOMAIN)
+        print('*', end='')
+        if not (Reachable_URL(requests.get(link,headers=headers_))):
+            pass
+        elif link not in visited_urls:
+            queued_urls.append(link)
+    return queued_urls
 
-def Find_Links(soup,DOMAIN):
-    found_links = []
-    try:
-        # Get all <a> Elements with a Href (Link)
-        linkElements = soup.find_all('a', href=True)
-        # Loop through every Element, extract the Link URL, check if it is valid and clean it
-        for linkElement in linkElements: 
-            link = linkElement['href']
-            if Check_Link_Validity(link):
-                cleaned_link = Clean_Link(link,DOMAIN)
-                found_links.append(cleaned_link)
-        return found_links
-    except: return found_links
+def scrap_url(url):
+    url_response = requests.get(url,headers=headers_)
+    url_soup = BeautifulSoup(url_response.text,'lxml')
+    return url_soup
 
-def store_Link(links,visited_urls,queued_urls,found_links, current_url,INTERNAL):
-    for link_url in found_links:
-        # Store Link (if Currrent_URL already exists, add to the List, else create a List with Link_URL)
-        if current_url in links:
-            links[current_url].append(link_url)
-        else:
-            links[current_url] = [link_url]
+def scrap_postinfo(url_soup):
+    url_tags = url_soup.find_all('header', class_ = "css-vutdsw efcnut33" )
+    url_tags.append(url_soup.find('header', class_ = "css-1qz5jgi efcnut36" ))
+    return url_tags[0]
 
-        # If Link has not yet been visited or queued up
-        if link_url not in visited_urls and link_url not in queued_urls:
-            # If Link is Internal
-            if INTERNAL in link_url:
-                # Add Link to Queue
-                queued_urls.append(link_url) 
+def scrap_roominfo(url_soup):
+    room_n = url_soup.find('div', attrs={'aria-label':'Liczba pokoi'})
+    return int(room_n.contents[2].contents[0].text)
+
+def scrap_expense_info(url_soup):
+    expenses = url_soup.find('div', attrs={'aria-label':'Czynsz'})
+    expenses = unidecode(expenses.contents[2].text)
+    if expenses != "Czynsz":
+        expenses = str(expenses.replace(' zl/miesiac', '').split(',')[0])
+        expenses = int(expenses.replace(' ', ''))
+    else: expenses = 0
+    return expenses
+
+def scrap_area_info(url_soup):
+    area = url_soup.find('div', attrs={'aria-label':'Powierzchnia'})
+    area=str(area.contents[4].text.split(" ")[0])
+    return float(area.replace(',','.'))
 
 # CRAWLER INFORMATION
 
@@ -120,32 +115,31 @@ soup = BeautifulSoup(responses.text, 'lxml')
 soup_divs = soup.find_all('a', href=True, class_ = "css-16vl3c1 e1x0p3r10" )
 queued_urls = []
 visited_urls = [] 
+element_list = []
 print("Loading")
-for listing in soup_divs:
-    link=Clean_Link(listing['href'],DOMAIN)
-    print('*', end='')
-    if not (Reachable_URL(requests.get(link,headers=headers_))):
-        pass
-    elif link not in visited_urls:
-        queued_urls.append(link)
+scrap_links(soup_divs,DOMAIN,headers_,queued_urls)
 print("\n") 
 for url in queued_urls:
-    url_response = requests.get(url,headers=headers_)
-    url_soup = BeautifulSoup(url_response.text,'lxml')
-    url_tags = url_soup.find_all('header', class_ = "css-vutdsw efcnut33" )
-    url_tags.append(url_soup.find('header', class_ = "css-1qz5jgi efcnut36" ))
-    room_n = url_soup.find('div', attrs={'aria-label':'Liczba pokoi'})
-    room_n = int(room_n.contents[2].contents[0].text)
-    metresq = url_soup.find('div', attrs={'aria-label':'Powierzchnia'})
-    expenses = url_soup.find('div', attrs={'aria-label':'Czynsz'})
-    tag = url_tags[0]
-    print(unidecode(tag.h1.contents[0]))
     print(url)
-    print(metresq.contents[4].text)
-    expenses=unidecode(expenses.contents[2].text)
-    if expenses != "Czynsz":
-        expenses = expenses.replace(' zl/miesiac', '')
-        print(expenses)
+    url_soup = scrap_url(url)
+    tag = scrap_postinfo(url_soup)
+    room_n = scrap_roominfo(url_soup)
+    area = scrap_area_info(url_soup)
+    expenses = scrap_expense_info(url_soup)
+    name = unidecode(tag.h1.contents[0])
+
     price=unidecode(str(tag.strong.contents[0])).replace('zl','')
-    print(int(price.replace(" ","")))
-    print("-----------------------")
+    price = int(price.replace(' ', ""))
+    dict1 = {
+        'Place-Info':{
+        'url': url, 
+        'Number of Rooms' : room_n,
+        'Area of Place' : area,
+        'Montly Spending' : expenses,
+        'Price' : price, 
+        'Post Name' : name
+    }}
+    element_list.append(dict1)
+
+with open('data.json', 'wb') as f:
+    json.dump(element_list, codecs.getwriter('utf-8')(f),indent=4)
