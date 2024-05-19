@@ -1,7 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import csv
-import string
 from unidecode import unidecode
 import json, codecs
 
@@ -68,78 +66,104 @@ def Clean_Link(link,DOMAIN):
         link = link.split('#', 1)[0]      
     return link
 
-def scrap_links(soup_divs,DOMAIN,headers_,queued_urls):
+def scrap_links(respondlink,DOMAIN,headers_,queued_urls):
+    #Scrap links that belong to each post
+    responses = requests.get(respondlink,headers=headers_)
+    soup = BeautifulSoup(responses.text, 'lxml')
+    soup_divs = soup.find_all('a', href=True, class_ = "css-16vl3c1 e1x0p3r10" )
+
+    #Fix every link and add it to the list
     for listing in soup_divs:
         link=Clean_Link(listing['href'],DOMAIN)
         print('*', end='')
+        #Add link to the list if only it is reachable 
         if not (Reachable_URL(requests.get(link,headers=headers_))):
             pass
+        #And it is not visited
         elif link not in visited_urls:
             queued_urls.append(link)
     return queued_urls
 
 def scrap_url(url):
-    url_response = requests.get(url,headers=headers_)
-    url_soup = BeautifulSoup(url_response.text,'lxml')
-    return url_soup
+    #Scrap all the contents of the url in the list
+    response = requests.get(url,headers=headers_)
+    soup = BeautifulSoup(response.text,'lxml')
+    return soup
 
-def scrap_postinfo(url_soup):
-    url_tags = url_soup.find_all('header', class_ = "css-vutdsw efcnut33" )
-    url_tags.append(url_soup.find('header', class_ = "css-1qz5jgi efcnut36" ))
+def scrap_postinfo(soup):
+    #Scrap Tags which contain name of the post and pricing
+    url_tags = soup.find_all('header', class_ = "css-vutdsw efcnut33" )
+    url_tags.append(soup.find('header', class_ = "css-1qz5jgi efcnut36" ))
     return url_tags[0]
 
-def scrap_roominfo(url_soup):
-    room_n = url_soup.find('div', attrs={'aria-label':'Liczba pokoi'})
+def scrap_roominfo(soup):
+    #Scrap number of rooms
+    room_n = soup.find('div', attrs={'aria-label':'Liczba pokoi'})
     return int(room_n.contents[2].contents[0].text)
 
-def scrap_expense_info(url_soup):
-    expenses = url_soup.find('div', attrs={'aria-label':'Czynsz'})
+def scrap_expense_info(soup):
+    #Scrap the expenses such as water and heating
+    expenses = soup.find('div', attrs={'aria-label':'Czynsz'})
     expenses = unidecode(expenses.contents[2].text)
+    #If expenses are not given
     if expenses != "Czynsz":
         expenses = str(expenses.replace(' zl/miesiac', '').split(',')[0])
         expenses = int(expenses.replace(' ', ''))
+    #The value is set to 0 for easy data compression
     else: expenses = 0
     return expenses
 
-def scrap_area_info(url_soup):
-    area = url_soup.find('div', attrs={'aria-label':'Powierzchnia'})
+def scrap_area_info(soup):
+    #Scrap the area of the house
+    area = soup.find('div', attrs={'aria-label':'Powierzchnia'})
     area=str(area.contents[4].text.split(" ")[0])
     return float(area.replace(',','.'))
 
-# CRAWLER INFORMATION
+def scrap_name(tag):
+    #This scraps the name of the post
+    return unidecode(tag.h1.contents[0])
 
+def scrap_price(tag):
+    #This scraps the price of the post
+    price = unidecode(str(tag.strong.contents[0])).replace('zl','')
+    return int(price.replace(' ', ""))
+
+def ouput_data(element_list):
+    #Data Output
+    with open('data.json', 'wb') as f:
+        json.dump(element_list, codecs.getwriter('utf-8')(f),indent=4)
+
+def main(element_list, url):
+    #Main Algorithm
+    for url in queued_urls:
+        url_soup = scrap_url(url)
+        tag = scrap_postinfo(url_soup)
+        room_n = scrap_roominfo(url_soup)
+        area = scrap_area_info(url_soup)
+        expenses = scrap_expense_info(url_soup)
+        name = scrap_name(tag)
+        price= scrap_price(tag)
+        dict1 = {
+            'Place-Info':{
+            'url': url, 
+            'Number of Rooms' : room_n,
+            'Area of Place' : area,
+            'Montly Spending' : expenses,
+            'Price' : price, 
+            'Post Name' : name
+        }}
+        element_list.append(dict1)  
+
+# CRAWLER INFORMATION
 DOMAIN = "https://www.otodom.pl"
 headers_ = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"}
-responses = requests.get("https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie/lodzkie/lodz/lodz/lodz",headers=headers_)
-soup = BeautifulSoup(responses.text, 'lxml')
-soup_divs = soup.find_all('a', href=True, class_ = "css-16vl3c1 e1x0p3r10" )
+respondlink = "https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie/lodzkie/lodz/lodz/lodz"
 queued_urls = []
 visited_urls = [] 
 element_list = []
+
 print("Loading")
-scrap_links(soup_divs,DOMAIN,headers_,queued_urls)
+url = scrap_links(respondlink,DOMAIN,headers_,queued_urls)
 print("\n") 
-for url in queued_urls:
-    print(url)
-    url_soup = scrap_url(url)
-    tag = scrap_postinfo(url_soup)
-    room_n = scrap_roominfo(url_soup)
-    area = scrap_area_info(url_soup)
-    expenses = scrap_expense_info(url_soup)
-    name = unidecode(tag.h1.contents[0])
-
-    price=unidecode(str(tag.strong.contents[0])).replace('zl','')
-    price = int(price.replace(' ', ""))
-    dict1 = {
-        'Place-Info':{
-        'url': url, 
-        'Number of Rooms' : room_n,
-        'Area of Place' : area,
-        'Montly Spending' : expenses,
-        'Price' : price, 
-        'Post Name' : name
-    }}
-    element_list.append(dict1)
-
-with open('data.json', 'wb') as f:
-    json.dump(element_list, codecs.getwriter('utf-8')(f),indent=4)
+main(element_list,url)
+ouput_data(element_list)
