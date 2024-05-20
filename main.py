@@ -140,7 +140,25 @@ def ouput_data(element_list):
     with open('data.json', 'wb') as f:
         json.dump(element_list, codecs.getwriter('utf-8')(f),indent=4)
 
-def main(element_list, url):
+def check_data(element):
+    if os.path.isfile('data.json'):
+        with open('data.json', 'r') as f:
+                data=json.load(f)
+                if data[0]["Place-Info"][element] == date.today().strftime('%d/%m/%Y'):
+                    return True
+                else: return False
+    else: return False 
+def get_links(visited_urls):
+    if os.path.isfile('data.json'):
+        with open('data.json', 'r') as f:
+            data=json.load(f)
+            for item in data:
+                visited_urls.append(item['Place-Info']['Url'])
+        return visited_urls
+    else:
+        return ['No Url, Please use /scrap to find elements first']      
+
+def inner_scrap(element_list, url,queued_urls):
     #Main Algorithm
     for url in queued_urls:
         url_soup = scrap_url(url)
@@ -157,10 +175,32 @@ def main(element_list, url):
             'Area of Place' : area,
             'Monthly Spending' : expenses,
             'Price' : price, 
-            'Scraped Date' : date.today().strftime('%d/%m/%Y')
+            'Scraped Date' : date.today().strftime('%d/%m/%Y'),
+            'Url': url
             
         }}
-        element_list.append(dict1)  
+        element_list.append(dict1) 
+
+def main(respondlink, DOMAIN, headers_,queued_urls,element_list):
+    if check_data('Scraped Date'):
+        pass
+    else: 
+        url = scrap_links(respondlink,DOMAIN,headers_,queued_urls)
+        inner_scrap(element_list,url,queued_urls)
+        ouput_data(element_list)
+
+    # Create table from data.json
+    create_table_from_json('data.json')
+
+    # Load the JSON data to pass to the graph functions
+    with open('data.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    # Visualize and save the graphs
+    plot_price_per_area(data)
+    plot_price_per_rooms(data)
+    # Display the DataFrame
+    subprocess.call('wkhtmltoimage -f png --width 0 data.html data.png', shell=True)
 
 # CRAWLER INFORMATION
 DOMAIN = "https://www.otodom.pl"
@@ -170,32 +210,8 @@ queued_urls = []
 visited_urls = [] 
 element_list = []
 
-print("Loading")
-if os.path.isfile('data.json'):
-    with open('data.json', 'r') as f:
-            data=json.load(f)
-            if data[0]["Place-Info"]['Scraped Date'] == date.today().strftime('%d/%m/%Y'):
-                pass
-            else: 
-                url = scrap_links(respondlink,DOMAIN,headers_,queued_urls)
-                main(element_list,url)
-                ouput_data(element_list)
-else: 
-    url = scrap_links(respondlink,DOMAIN,headers_,queued_urls)
-    main(element_list,url)
-    ouput_data(element_list)
 
 
-# Create table from data.json
-create_table_from_json('data.json')
 
-# Load the JSON data to pass to the graph functions
-with open('data.json', 'r', encoding='utf-8') as f:
-    data = json.load(f)
 
-# Visualize and save the graphs
-plot_price_per_area(data)
-plot_price_per_rooms(data)
 
-# Display the DataFrame
-subprocess.call('wkhtmltoimage -f png --width 0 data.html data.png', shell=True)
