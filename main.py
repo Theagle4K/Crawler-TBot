@@ -3,10 +3,11 @@ import requests
 from unidecode import unidecode
 import json, codecs
 from tables import create_table_from_json
-import csv
+from graphs import plot_price_per_area
+from graphs import plot_price_per_rooms
 import subprocess
-import imgkit
-
+from datetime import date
+import os
 
 def Reachable_URL(respones):
     #=> https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
@@ -156,6 +157,7 @@ def main(element_list, url):
             'Area of Place' : area,
             'Monthly Spending' : expenses,
             'Price' : price, 
+            'Scraped Date' : date.today().strftime('%d/%m/%Y')
             
         }}
         element_list.append(dict1)  
@@ -169,10 +171,19 @@ visited_urls = []
 element_list = []
 
 print("Loading")
-url = scrap_links(respondlink,DOMAIN,headers_,queued_urls)
-print("\n") 
-main(element_list,url)
-ouput_data(element_list)
+if os.path.isfile('data.json'):
+    with open('data.json', 'r') as f:
+            data=json.load(f)
+            if data[0]["Place-Info"]['Scraped Date'] == date.today().strftime('%d/%m/%Y'):
+                pass
+            else: 
+                url = scrap_links(respondlink,DOMAIN,headers_,queued_urls)
+                main(element_list,url)
+                ouput_data(element_list)
+else: 
+    url = scrap_links(respondlink,DOMAIN,headers_,queued_urls)
+    main(element_list,url)
+    ouput_data(element_list)
 
 
 # Create table from data.json
