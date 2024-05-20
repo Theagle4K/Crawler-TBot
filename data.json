@@ -1,28 +1,181 @@
 [
     {
         "Place-Info": {
-            "Post Name": "Nowa kawalerka z balkonem 23m2 - bez posrednikow",
-            "Number of Rooms": 1,
-            "Area of Place": 23.0,
-            "Montly Spending": 150,
-            "Price": 1700
+            "Post Name": "Duze, wyremontowane mieszkanie dla pary",
+            "Number of Rooms": 2,
+            "Area of Place": 45.0,
+            "Monthly Spending": 550,
+            "Price": 1900
         }
     },
     {
         "Place-Info": {
-            "Post Name": "Nowa kawalerka na Balutach - 27m2 KLIMATYZACJA",
+            "Post Name": "2pok|Centrum|Manufaktura|48m2|MiejscePostojowe",
+            "Number of Rooms": 2,
+            "Area of Place": 48.0,
+            "Monthly Spending": 800,
+            "Price": 2200
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Wynajme nowe mieszkanie z widokiem na Manhattan",
+            "Number of Rooms": 2,
+            "Area of Place": 46.0,
+            "Monthly Spending": 800,
+            "Price": 2400
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Mikrokawalerka - Centrum! UMED UL. 28 PSK 33/35",
             "Number of Rooms": 1,
-            "Area of Place": 27.0,
-            "Montly Spending": 450,
+            "Area of Place": 20.0,
+            "Monthly Spending": 190,
+            "Price": 920
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Obok Ronda SolidarnosciCKDWPiAPARKINGKOMORKA",
+            "Number of Rooms": 3,
+            "Area of Place": 65.0,
+            "Monthly Spending": 600,
+            "Price": 3200
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "2 pokoje, 34m2, CENTRUM, ul. Wodna, NOWE,ogrodzone",
+            "Number of Rooms": 2,
+            "Area of Place": 34.25,
+            "Monthly Spending": 450,
+            "Price": 2200
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Wynajme mieszkanie 34 m2 z ogrodkiem Wroblewskiego",
+            "Number of Rooms": 2,
+            "Area of Place": 34.23,
+            "Monthly Spending": 430,
+            "Price": 2300
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Stylowy i przestronny apartament w kamienicy",
+            "Number of Rooms": 2,
+            "Area of Place": 67.1,
+            "Monthly Spending": 0,
+            "Price": 2350
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "nowoczesne dwupokojowe mieszkanie z klimatyzacja",
+            "Number of Rooms": 2,
+            "Area of Place": 44.0,
+            "Monthly Spending": 530,
+            "Price": 2400
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "2pok|ul.Lubeckiego10|45m2|Lumumby|CKD|Infosys|UL",
+            "Number of Rooms": 2,
+            "Area of Place": 45.0,
+            "Monthly Spending": 850,
+            "Price": 1800
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "2pok|Baluty|ul.Marynarska9|48m2|ASP|DworzecPolnocn",
+            "Number of Rooms": 2,
+            "Area of Place": 48.0,
+            "Monthly Spending": 900,
+            "Price": 1800
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Mieszkanie M3, Lodz - Koziny",
+            "Number of Rooms": 2,
+            "Area of Place": 36.0,
+            "Monthly Spending": 650,
             "Price": 1600
         }
     },
     {
         "Place-Info": {
-            "Post Name": "Wynajme kawalerke 25m",
+            "Post Name": "52 m przytulne, wsrod zieleni",
+            "Number of Rooms": 2,
+            "Area of Place": 52.0,
+            "Monthly Spending": 610,
+            "Price": 1800
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "FUZJA, 2 pokoje+salon, super standard!",
+            "Number of Rooms": 3,
+            "Area of Place": 61.0,
+            "Monthly Spending": 600,
+            "Price": 3800
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Kawalerka z antresola przy Manufakturze",
             "Number of Rooms": 1,
-            "Area of Place": 25.0,
-            "Montly Spending": 400,
+            "Area of Place": 15.0,
+            "Monthly Spending": 300,
+            "Price": 1300
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Mieszkanie 2 pokoje+kuchnia, Zrodlowa!",
+            "Number of Rooms": 2,
+            "Area of Place": 42.0,
+            "Monthly Spending": 580,
+            "Price": 1800
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "mieszkanie jednopokojowe z kuchnia",
+            "Number of Rooms": 1,
+            "Area of Place": 35.9,
+            "Monthly Spending": 570,
+            "Price": 1600
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Lodz Olechow - 2 pokojowy apartament 54m2",
+            "Number of Rooms": 2,
+            "Area of Place": 54.0,
+            "Monthly Spending": 680,
+            "Price": 2500
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Ustawne M-3 PO REMONCIE ul. Niemcewicza GORNA",
+            "Number of Rooms": 2,
+            "Area of Place": 37.0,
+            "Monthly Spending": 414,
+            "Price": 1960
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "NOWE mieszkanie 2 pokojowe_BEZPOSREDNIO",
+            "Number of Rooms": 2,
+            "Area of Place": 35.0,
+            "Monthly Spending": 250,
             "Price": 2050
         }
     },
@@ -31,7 +184,7 @@
             "Post Name": "Kawalerka nowa, umeblowana",
             "Number of Rooms": 1,
             "Area of Place": 19.0,
-            "Montly Spending": 150,
+            "Monthly Spending": 150,
             "Price": 1600
         }
     },
@@ -40,35 +193,98 @@
             "Post Name": "Mieszkanie 2-pokoje z balkonem, nowe_BEZPOSREDNIO",
             "Number of Rooms": 2,
             "Area of Place": 40.0,
-            "Montly Spending": 250,
+            "Monthly Spending": 250,
             "Price": 2200
         }
     },
     {
         "Place-Info": {
-            "Post Name": "Komfortowe mieszkanie 2-pokojowe-NOWE BEZ PROWIZJI",
+            "Post Name": "Apartament w centrum, basen, park!",
             "Number of Rooms": 2,
-            "Area of Place": 32.0,
-            "Montly Spending": 300,
-            "Price": 1850
+            "Area of Place": 45.0,
+            "Monthly Spending": 620,
+            "Price": 2950
         }
     },
     {
         "Place-Info": {
-            "Post Name": "Kawalerka 23m2 z balkonem BEZ PROWIZJI",
-            "Number of Rooms": 1,
-            "Area of Place": 23.0,
-            "Montly Spending": 150,
-            "Price": 1700
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Mieszkanie 3 pokojowe, duzy balkon",
+            "Post Name": "Super apartament, 2 sypialnie, taras, parking!",
             "Number of Rooms": 3,
-            "Area of Place": 50.0,
-            "Montly Spending": 350,
-            "Price": 3050
+            "Area of Place": 85.0,
+            "Monthly Spending": 800,
+            "Price": 4000
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "1600",
+            "Number of Rooms": 1,
+            "Area of Place": 39.0,
+            "Monthly Spending": 500,
+            "Price": 1600
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Wynajme 2 pok po remoncie ul. Odynca, Gorna, 44 m2",
+            "Number of Rooms": 2,
+            "Area of Place": 44.0,
+            "Monthly Spending": 635,
+            "Price": 1900
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Mieszkanie 3 pokoje, taras, Gorna!",
+            "Number of Rooms": 3,
+            "Area of Place": 72.0,
+            "Monthly Spending": 800,
+            "Price": 3500
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Apartment Premium w Centrum przy parku,garaz,winda",
+            "Number of Rooms": 2,
+            "Area of Place": 61.0,
+            "Monthly Spending": 575,
+            "Price": 2500
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Kawalerka, 28m Paderewskiego, bezposrednio",
+            "Number of Rooms": 1,
+            "Area of Place": 28.0,
+            "Monthly Spending": 590,
+            "Price": 1690
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Nowe 2-pokojowe mieszkanie D77 - Manu",
+            "Number of Rooms": 2,
+            "Area of Place": 48.0,
+            "Monthly Spending": 400,
+            "Price": 2800
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Kawalerka na wynajem, Lodz Baluty, Zgierska",
+            "Number of Rooms": 1,
+            "Area of Place": 30.0,
+            "Monthly Spending": 500,
+            "Price": 1350
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Kawalerka, ul. Drewnowska 77, 32 m2",
+            "Number of Rooms": 1,
+            "Area of Place": 32.0,
+            "Monthly Spending": 400,
+            "Price": 2150
         }
     },
     {
@@ -76,7 +292,7 @@
             "Post Name": "Dwie Sypialnie, Parking na zamykanym podworku",
             "Number of Rooms": 3,
             "Area of Place": 50.0,
-            "Montly Spending": 600,
+            "Monthly Spending": 600,
             "Price": 1700
         }
     },
@@ -85,7 +301,7 @@
             "Post Name": "Nowe 2-pokojowe mieszkanie na Drewnowskiej - Manu",
             "Number of Rooms": 2,
             "Area of Place": 44.0,
-            "Montly Spending": 400,
+            "Monthly Spending": 400,
             "Price": 2800
         }
     },
@@ -94,7 +310,7 @@
             "Post Name": "Cicha kawalerka na Julianowie",
             "Number of Rooms": 1,
             "Area of Place": 27.1,
-            "Montly Spending": 450,
+            "Monthly Spending": 450,
             "Price": 1500
         }
     },
@@ -103,7 +319,7 @@
             "Post Name": "Mieszkanie 2-pokojowe (rozkladowe), Rajska, Lodz",
             "Number of Rooms": 2,
             "Area of Place": 59.72,
-            "Montly Spending": 730,
+            "Monthly Spending": 730,
             "Price": 1900
         }
     },
@@ -112,7 +328,7 @@
             "Post Name": "Wynajme mieszkanie 37.2 Retkinia -Karolew",
             "Number of Rooms": 2,
             "Area of Place": 37.2,
-            "Montly Spending": 650,
+            "Monthly Spending": 650,
             "Price": 1800
         }
     },
@@ -121,7 +337,7 @@
             "Post Name": "Apartament Premium,Diasfera,Centrum,klima,winda",
             "Number of Rooms": 2,
             "Area of Place": 40.0,
-            "Montly Spending": 535,
+            "Monthly Spending": 535,
             "Price": 2500
         }
     },
@@ -130,206 +346,8 @@
             "Post Name": "nowe - Rembielinskiego 4/41B - bez posrednikow",
             "Number of Rooms": 1,
             "Area of Place": 25.9,
-            "Montly Spending": 181,
+            "Monthly Spending": 181,
             "Price": 1643
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Bezposrednio 2 pok. 40 m2, Centrum, blisko Uni.Med",
-            "Number of Rooms": 2,
-            "Area of Place": 40.0,
-            "Montly Spending": 550,
-            "Price": 2400
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Urokliwe 2-pokojowe mieszkanie blisko Manufaktury",
-            "Number of Rooms": 2,
-            "Area of Place": 34.0,
-            "Montly Spending": 550,
-            "Price": 2450
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Wynajme mieszkanie w centrum",
-            "Number of Rooms": 2,
-            "Area of Place": 34.0,
-            "Montly Spending": 650,
-            "Price": 1800
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "2 pokoje Ilumino Kilinskiego DOSTEPNE od Zaraz",
-            "Number of Rooms": 2,
-            "Area of Place": 46.0,
-            "Montly Spending": 900,
-            "Price": 1950
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Nowe kolo Politechniki Wroblewskiego m.parkingowe",
-            "Number of Rooms": 1,
-            "Area of Place": 30.0,
-            "Montly Spending": 300,
-            "Price": 1700
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Dwupokojowe mieszkanie na Dolach",
-            "Number of Rooms": 2,
-            "Area of Place": 47.0,
-            "Montly Spending": 700,
-            "Price": 1700
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Mieszkanie 2 pokoje Nowe obok Manufaktury+parking",
-            "Number of Rooms": 2,
-            "Area of Place": 42.0,
-            "Montly Spending": 700,
-            "Price": 2400
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Piekna kawalerka, CENTRUM!",
-            "Number of Rooms": 1,
-            "Area of Place": 14.0,
-            "Montly Spending": 300,
-            "Price": 1000
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Dwupokojowe przytulne 38m2 Zarzew Grota-Roweckiego",
-            "Number of Rooms": 2,
-            "Area of Place": 38.0,
-            "Montly Spending": 510,
-            "Price": 1600
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Mieszkanie, 30 m2, Lodz",
-            "Number of Rooms": 1,
-            "Area of Place": 30.0,
-            "Montly Spending": 0,
-            "Price": 2000
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Komfortowy apartament 3 pokoje, Baluty Okopowa",
-            "Number of Rooms": 3,
-            "Area of Place": 64.0,
-            "Montly Spending": 750,
-            "Price": 2600
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Flat, insurance, green area, A1, A2 :)",
-            "Number of Rooms": 2,
-            "Area of Place": 51.0,
-            "Montly Spending": 600,
-            "Price": 1699
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "kawalerka na wynajem Piotrkowska deptak Pasaz Sch.",
-            "Number of Rooms": 1,
-            "Area of Place": 23.0,
-            "Montly Spending": 350,
-            "Price": 1500
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Centrum, Nowe 2-pokojowe mieszkanie, Piotrkowska",
-            "Number of Rooms": 2,
-            "Area of Place": 40.0,
-            "Montly Spending": 408,
-            "Price": 2350
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Apartamenty 8 Debow, na wynajem 3 pokojowe, MP",
-            "Number of Rooms": 3,
-            "Area of Place": 58.85,
-            "Montly Spending": 600,
-            "Price": 3500
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Apartament do wynajecia ul. Milionowa",
-            "Number of Rooms": 2,
-            "Area of Place": 52.0,
-            "Montly Spending": 720,
-            "Price": 2600
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Piekna kawalerka swiezo po remoncie",
-            "Number of Rooms": 1,
-            "Area of Place": 16.0,
-            "Montly Spending": 200,
-            "Price": 1350
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Nowa, atrakcyjna kawalerka - bez prowizji",
-            "Number of Rooms": 1,
-            "Area of Place": 36.0,
-            "Montly Spending": 0,
-            "Price": 1736
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Nowe, komfortowe mieszkanie blisko dworca Lodz Fab",
-            "Number of Rooms": 2,
-            "Area of Place": 56.7,
-            "Montly Spending": 0,
-            "Price": 2471
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Komfortowe mieszkanie - 3 pokoje, bez prowizji",
-            "Number of Rooms": 3,
-            "Area of Place": 61.5,
-            "Montly Spending": 0,
-            "Price": 2818
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Sloneczne M2 przy parku na Zdrowiu ul. Srebrzynska",
-            "Number of Rooms": 1,
-            "Area of Place": 39.0,
-            "Montly Spending": 508,
-            "Price": 1600
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Nowoczesne mieszkanie | 2 pokoje | Lodz Gorna",
-            "Number of Rooms": 2,
-            "Area of Place": 42.0,
-            "Montly Spending": 600,
-            "Price": 2200
         }
     }
 ]

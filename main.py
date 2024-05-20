@@ -154,7 +154,7 @@ def main(element_list, url):
             'Post Name' : name,
             'Number of Rooms' : room_n,
             'Area of Place' : area,
-            'Montly Spending' : expenses,
+            'Monthly Spending' : expenses,
             'Price' : price, 
             
         }}
