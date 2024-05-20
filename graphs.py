@@ -2,7 +2,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def plot_price_per_area(data):
-    df = pd.DataFrame(data)
+    # Extract relevant data
+    data_dicts = [
+        {
+            'Price': item['Place-Info']['Price'],
+            'Area of Place': item['Place-Info']['Area of Place']
+        }
+        for item in data
+    ]
+    df = pd.DataFrame(data_dicts)
+    
+    # Plotting
     plt.figure(figsize=(10, 6))
     plt.scatter(df['Price'], df['Area of Place'], color='blue')
     plt.title('Price vs Area')
@@ -13,7 +23,17 @@ def plot_price_per_area(data):
     plt.close()
 
 def plot_price_per_rooms(data):
-    df = pd.DataFrame(data)
+    # Extract relevant data
+    data_dicts = [
+        {
+            'Price': item['Place-Info']['Price'],
+            'Number of Rooms': item['Place-Info']['Number of Rooms']
+        }
+        for item in data
+    ]
+    df = pd.DataFrame(data_dicts)
+    
+    # Plotting
     plt.figure(figsize=(10, 6))
     plt.scatter(df['Price'], df['Number of Rooms'], color='green')
     plt.title('Price vs Number of Rooms')
