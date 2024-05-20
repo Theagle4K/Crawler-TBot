@@ -58,108 +58,121 @@ def Reachable_URL(respones):
     if status_code == 511: return False
 
 def Clean_Link(link,DOMAIN):
-    #Fix relative URL
+    # Fix relative URL
     if 'http' not in link:
         if str(link).startswith('/'):
             link = DOMAIN + link
         else:
             link = DOMAIN + '/' + link
-    #Removes the parameters
+    # Removes the parameters
     if "?" in link:
         link = link.split('?', 1)[0]
-    #Removes the jumpmark
+    # Removes the jumpmark
     if "#" in link:
         link = link.split('#', 1)[0]      
     return link
 
 def scrap_links(respondlink,DOMAIN,headers_,queued_urls):
-    #Scrap links that belong to each post
+    # Scrap links that belong to each post
     responses = requests.get(respondlink,headers=headers_)
     soup = BeautifulSoup(responses.text, 'lxml')
     soup_divs = soup.find_all('a', href=True, class_ = "css-16vl3c1 e1x0p3r10" )
 
-    #Fix every link and add it to the list
+    # Fix every link and add it to the list
     for listing in soup_divs:
         link=Clean_Link(listing['href'],DOMAIN)
         print('*', end='')
-        #Add link to the list if only it is reachable 
+        # Add link to the list if only it is reachable 
         if not (Reachable_URL(requests.get(link,headers=headers_))):
             pass
-        #And it is not visited
+        # And it is not visited
         elif link not in visited_urls:
             queued_urls.append(link)
     return queued_urls
 
 def scrap_url(url):
-    #Scrap all the contents of the url in the list
+    # Scrap all the contents of the url in the list
     response = requests.get(url,headers=headers_)
     soup = BeautifulSoup(response.text,'lxml')
     return soup
 
 def scrap_postinfo(soup):
-    #Scrap Tags which contain name of the post and pricing
+    # Scrap Tags which contain name of the post and pricing
     url_tags = soup.find_all('header', class_ = "css-vutdsw efcnut33" )
     url_tags.append(soup.find('header', class_ = "css-1qz5jgi efcnut36" ))
     return url_tags[0]
 
 def scrap_roominfo(soup):
-    #Scrap number of rooms
-    #Find the issue when room number doesn't exist
+    # Scrap number of rooms
+    # Find the issue when room number doesn't exist
     room_n = soup.find('div', attrs={'aria-label':'Liczba pokoi'})
-    return int(room_n.contents[2].contents[0].text)
+    if len(room_n.contents) > 0:
+        return int(room_n.contents[2].contents[0].text)
+    else: return 1
 
 def scrap_expense_info(soup):
-    #Scrap the expenses such as water and heating
+    # Scrap the expenses such as water and heating
     expenses = soup.find('div', attrs={'aria-label':'Czynsz'})
     expenses = unidecode(expenses.contents[2].text)
-    #If expenses are not given
+    # If expenses are not given
     if expenses != "Czynsz":
         expenses = str(expenses.replace(' zl/miesiac', '').split(',')[0])
         expenses = int(expenses.replace(' ', ''))
-    #The value is set to 0 for easy data compression
+    # The value is set to 0 for easy data compression
     else: expenses = 0
     return expenses
 
 def scrap_area_info(soup):
-    #Scrap the area of the house
+    # Scrap the area of the house
     area = soup.find('div', attrs={'aria-label':'Powierzchnia'})
     area=str(area.contents[4].text.split(" ")[0])
     return float(area.replace(',','.'))
 
 def scrap_name(tag):
-    #This scraps the name of the post
+    # This scraps the name of the post
     return unidecode(tag.h1.contents[0])
 
 def scrap_price(tag):
-    #This scraps the price of the post
+    # This scraps the price of the post
     price = unidecode(str(tag.strong.contents[0])).replace('zl','')
     return int(price.replace(' ', ""))
 
 def ouput_data(element_list):
-    #Data Output
+    # Data Output
     with open('data.json', 'wb') as f:
         json.dump(element_list, codecs.getwriter('utf-8')(f),indent=4)
 
 def check_data(element):
+    # Check if the file exists
     if os.path.isfile('data.json'):
+        # Open the file and read it
         with open('data.json', 'r') as f:
                 data=json.load(f)
+                
+                # Check if the date the first element in the file is scraped today
                 if data[0]["Place-Info"][element] == date.today().strftime('%d/%m/%Y'):
+                    # Return true if scraped
                     return True
+                    # False if not
                 else: return False
-    else: return False 
+           # Also false if file doesn't exist     
+    else: return False
+
 def get_links(visited_urls):
+    # If data file exists read it 
     if os.path.isfile('data.json'):
         with open('data.json', 'r') as f:
             data=json.load(f)
+            # Find each link in the data file 
             for item in data:
                 visited_urls.append(item['Place-Info']['Url'])
         return visited_urls
     else:
+        # Or return a message to the user
         return ['No Url, Please use /scrap to find elements first']      
 
 def inner_scrap(element_list, url,queued_urls):
-    #Main Algorithm
+    # Main Algorithm
     for url in queued_urls:
         url_soup = scrap_url(url)
         tag = scrap_postinfo(url_soup)
@@ -168,6 +181,8 @@ def inner_scrap(element_list, url,queued_urls):
         expenses = scrap_expense_info(url_soup)
         name = scrap_name(tag)
         price= scrap_price(tag)
+
+        # Dictionary which forms the data.json later on
         dict1 = {
             'Place-Info':{
             'Post Name' : name,
@@ -181,7 +196,9 @@ def inner_scrap(element_list, url,queued_urls):
         }}
         element_list.append(dict1) 
 
+# Main scrapper part of the code which works everything
 def main(respondlink, DOMAIN, headers_,queued_urls,element_list):
+    # If data is already scraped in that day, don't scrap it again
     if check_data('Scraped Date'):
         pass
     else: 
