@@ -12,9 +12,12 @@ def plot_price_per_area(data):
     ]
     df = pd.DataFrame(data_dicts)
     
+    # Sorting the dataframe by Price to ensure proper line plotting
+    df = df.sort_values(by='Price')
+    
     # Plotting
     plt.figure(figsize=(10, 6))
-    plt.scatter(df['Price'], df['Area of Place'], color='blue')
+    plt.plot(df['Price'], df['Area of Place'], color='blue', marker='o')
     plt.title('Price vs Area')
     plt.xlabel('Price')
     plt.ylabel('Area of Place')
@@ -33,9 +36,12 @@ def plot_price_per_rooms(data):
     ]
     df = pd.DataFrame(data_dicts)
     
+    # Sorting the dataframe by Price
+    df = df.sort_values(by='Price')
+    
     # Plotting
     plt.figure(figsize=(10, 6))
-    plt.scatter(df['Price'], df['Number of Rooms'], color='green')
+    plt.plot(df['Price'], df['Number of Rooms'], color='green', marker='o')
     plt.title('Price vs Number of Rooms')
     plt.xlabel('Price')
     plt.ylabel('Number of Rooms')
