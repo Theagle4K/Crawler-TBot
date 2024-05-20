@@ -178,5 +178,13 @@ ouput_data(element_list)
 # Create table from data.json
 create_table_from_json('data.json')
 
+# Load the JSON data to pass to the graph functions
+with open('data.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+
+# Visualize and save the graphs
+plot_price_per_area(data)
+plot_price_per_rooms(data)
+
 # Display the DataFrame
 subprocess.call('wkhtmltoimage -f png --width 0 data.html data.png', shell=True)
