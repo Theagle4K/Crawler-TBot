@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib
+
 
 def plot_price_per_area(data):
     # Extract relevant data
@@ -16,6 +18,7 @@ def plot_price_per_area(data):
     df = df.sort_values(by='Price')
     
     # Plotting
+    matplotlib.use('agg')
     plt.figure(figsize=(10, 6))
     plt.plot(df['Price'], df['Area of Place'], color='blue', marker='o')
     plt.title('Price vs Area')
@@ -40,6 +43,7 @@ def plot_price_per_rooms(data):
     df = df.sort_values(by='Price')
     
     # Plotting
+    matplotlib.use('agg')
     plt.figure(figsize=(10, 6))
     plt.plot(df['Price'], df['Number of Rooms'], color='green', marker='o')
     plt.title('Price vs Number of Rooms')

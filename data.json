@@ -1,46 +1,35 @@
 [
     {
         "Place-Info": {
-            "Post Name": "Lodz ul. Przedzalniana 80. DOSTEPNE OD REKI",
+            "Post Name": "Mieszkanie dwupokojowe centrum",
+            "Number of Rooms": 2,
+            "Area of Place": 32.0,
+            "Monthly Spending": 0,
+            "Price": 1900,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/mieszkanie-dwupokojowe-centrum-ID4qTpD"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Nowe Studio, po remoncie, ciche z miejscem parking",
             "Number of Rooms": 1,
-            "Area of Place": 25.0,
-            "Monthly Spending": 500,
+            "Area of Place": 41.0,
+            "Monthly Spending": 750,
+            "Price": 2250,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/nowe-studio-po-remoncie-ciche-z-miejscem-parking-ID4gocn"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Nowa Kawalerka z balkonem 19m2 - bez posrednikow",
+            "Number of Rooms": 1,
+            "Area of Place": 19.0,
+            "Monthly Spending": 150,
             "Price": 1600,
             "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/lodz-ul-przedzalniana-80-dostepne-od-reki-ID4qVCO"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Kawalerka Lumumby bezposrednio",
-            "Number of Rooms": 1,
-            "Area of Place": 30.0,
-            "Monthly Spending": 510,
-            "Price": 1600,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/kawalerka-lumumby-bezposrednio-ID4qRr7"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Wysoki standard, TOP lokalizacja! Okazyjna cena!",
-            "Number of Rooms": 2,
-            "Area of Place": 37.0,
-            "Monthly Spending": 600,
-            "Price": 2800,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/wysoki-standard-top-lokalizacja-okazyjna-cena-ID4hJij"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "2 pokojowy nowy apartament kopcinskiego Neopolis",
-            "Number of Rooms": 2,
-            "Area of Place": 37.0,
-            "Monthly Spending": 600,
-            "Price": 2100,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/2-pokojowy-nowy-apartament-kopcinskiego-neopolis-ID46V3g"
+            "Url": "https://www.otodom.pl/pl/oferta/nowa-kawalerka-z-balkonem-19m-bez-posrednikow-ID4qG1J"
         }
     },
     {
@@ -52,6 +41,28 @@
             "Price": 1850,
             "Scraped Date": "07/06/2024",
             "Url": "https://www.otodom.pl/pl/oferta/komfortowe-mieszkanie-2-pokojowe-nowe-bez-prowizji-ID4pRex"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Mieszkanie FAMILY PLUS 4-pokojowe z balkonem",
+            "Number of Rooms": 4,
+            "Area of Place": 56.0,
+            "Monthly Spending": 450,
+            "Price": 3350,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/mieszkanie-family-plus-4-pokojowe-z-balkonem-ID4o0wi"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Kawalerka nowa, umeblowana",
+            "Number of Rooms": 1,
+            "Area of Place": 19.0,
+            "Monthly Spending": 150,
+            "Price": 1600,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/kawalerka-nowa-umeblowana-ID4lNml"
         }
     },
     {
@@ -78,13 +89,79 @@
     },
     {
         "Place-Info": {
-            "Post Name": "Kawalerka 23m2 z balkonem BEZ PROWIZJI",
-            "Number of Rooms": 1,
-            "Area of Place": 23.0,
-            "Monthly Spending": 150,
-            "Price": 1700,
+            "Post Name": "Loft Tymienieckiego przepiekny",
+            "Number of Rooms": 4,
+            "Area of Place": 130.0,
+            "Monthly Spending": 800,
+            "Price": 5000,
             "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/kawalerka-23m2-z-balkonem-bez-prowizji-ID4pV4O"
+            "Url": "https://www.otodom.pl/pl/oferta/loft-tymienieckiego-przepiekny-ID4pUbO"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Nowe mieszkanie 56m2 Pienista b. wysoki standard",
+            "Number of Rooms": 2,
+            "Area of Place": 56.0,
+            "Monthly Spending": 850,
+            "Price": 2100,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/nowe-mieszkanie-56m2-pienista-b-wysoki-standard-ID2lbTw"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Wolczanska 97 / 45m2 / balkon / wolne od zaraz",
+            "Number of Rooms": 2,
+            "Area of Place": 45.0,
+            "Monthly Spending": 290,
+            "Price": 1900,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/wolczanska-97-45m2-balkon-wolne-od-zaraz-ID48ilk"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "3 pokojowe mieszkanie przy Piotrkowskiej 257A Lodz",
+            "Number of Rooms": 3,
+            "Area of Place": 65.0,
+            "Monthly Spending": 654,
+            "Price": 3000,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/3-pokojowe-mieszkanie-przy-piotrkowskiej-257a-lodz-ID4qPvi"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Duza kawalera z balkonem, ul Zielna!",
+            "Number of Rooms": 1,
+            "Area of Place": 44.0,
+            "Monthly Spending": 450,
+            "Price": 1600,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/duza-kawalera-z-balkonem-ul-zielna-ID4qX52"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "Mieszkanie na wynajem - Krzemieniecka",
+            "Number of Rooms": 2,
+            "Area of Place": 37.0,
+            "Monthly Spending": 500,
+            "Price": 2000,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/mieszkanie-na-wynajem-krzemieniecka-ID4qX2H"
+        }
+    },
+    {
+        "Place-Info": {
+            "Post Name": "2 pokojowy nowy apartament kopcinskiego Neopolis",
+            "Number of Rooms": 2,
+            "Area of Place": 37.0,
+            "Monthly Spending": 600,
+            "Price": 2100,
+            "Scraped Date": "07/06/2024",
+            "Url": "https://www.otodom.pl/pl/oferta/2-pokojowy-nowy-apartament-kopcinskiego-neopolis-ID46V3g"
         }
     },
     {
@@ -338,94 +415,6 @@
             "Price": 1600,
             "Scraped Date": "07/06/2024",
             "Url": "https://www.otodom.pl/pl/oferta/mieszkanie-na-wynajem-lodz-dabrowa-2-pokoje-ID4qNbR"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Nowe studio w Centrum - Apartamentowiec Primo!",
-            "Number of Rooms": 1,
-            "Area of Place": 20.0,
-            "Monthly Spending": 400,
-            "Price": 1700,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/nowe-studio-w-centrum-apartamentowiec-primo-ID4qVKi"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Kawalerka 28m po remoncie - Gorna, Paderewskiego",
-            "Number of Rooms": 1,
-            "Area of Place": 28.0,
-            "Monthly Spending": 450,
-            "Price": 1350,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/kawalerka-28m-po-remoncie-gorna-paderewskiego-ID4ijfe"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "3 Kawalerki obok siebie w centrum Lodzi Legionow52",
-            "Number of Rooms": 1,
-            "Area of Place": 18.0,
-            "Monthly Spending": 0,
-            "Price": 1000,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/3-kawalerki-obok-siebie-w-centrum-lodzi-legionow52-ID4drl1"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Solaris | 3 pokoje | Taras | Miejsce Parkingowe",
-            "Number of Rooms": 3,
-            "Area of Place": 64.0,
-            "Monthly Spending": 770,
-            "Price": 2800,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/solaris-3-pokoje-taras-miejsce-parkingowe-ID4qVDT"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Przy PKP Widzew, super zrobione 37m 2 osobne pokoj",
-            "Number of Rooms": 2,
-            "Area of Place": 37.0,
-            "Monthly Spending": 550,
-            "Price": 1850,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/przy-pkp-widzew-super-zrobione-37m-2-osobne-pokoj-ID4qN4w"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Lodz ul. Przedzalniana 80. DOSTEPNE OD REKI",
-            "Number of Rooms": 1,
-            "Area of Place": 25.0,
-            "Monthly Spending": 500,
-            "Price": 1600,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/lodz-ul-przedzalniana-80-dostepne-od-reki-ID4qVCO"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Dwupoziomowe,  100 m2,  ul. Janosika, bezczynszowe",
-            "Number of Rooms": 2,
-            "Area of Place": 100.0,
-            "Monthly Spending": 0,
-            "Price": 4000,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/dwupoziomowe-100-m2-ul-janosika-bezczynszowe-ID4qVCK"
-        }
-    },
-    {
-        "Place-Info": {
-            "Post Name": "Swieze mieszkanie 3 pok przy ul. Pieknej w Lodzi",
-            "Number of Rooms": 3,
-            "Area of Place": 48.0,
-            "Monthly Spending": 0,
-            "Price": 2400,
-            "Scraped Date": "07/06/2024",
-            "Url": "https://www.otodom.pl/pl/oferta/swieze-mieszkanie-3-pok-przy-ul-pieknej-w-lodzi-ID4qKI5"
         }
     }
 ]

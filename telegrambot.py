@@ -1,5 +1,5 @@
 import telebot
-from main import main, respondlink, DOMAIN, headers_, queued_urls, element_list, get_links,visited_urls
+from main import main, respondlink, DOMAIN, headers_, queued_urls, element_list, get_links,visited_urls,clear_arrays
 from constants import API_KEY
 import itertools
 import os
@@ -31,7 +31,10 @@ def show_links(message):
 def send_data(message):
     chat_id = message.chat.id
     bot.reply_to(message,"Here's the data obtained from the each publication:")
-    bot.send_photo(chat_id, photo=open('data.png', 'rb'))
+    try:
+        bot.send_photo(chat_id, photo=open('data.png', 'rb'))
+    except:
+        bot.reply_to(message,"Data image is too large, please try to scrap again to smaller options:")
     bot.send_photo(chat_id, photo=open('price_vs_area.png', 'rb'))
     bot.send_photo(chat_id, photo=open('price_vs_rooms.png', 'rb'))
 
@@ -42,6 +45,7 @@ def delete_db(message):
         os.remove('data.json')
         os.remove('data.html')
         os.remove('data.png')
+        clear_arrays(queued_urls,element_list)
         bot.reply_to(message,"Database has been deleted.")
     else:
         bot.reply_to(message,'Database could not be deleted')

@@ -198,6 +198,9 @@ def inner_scrap(element_list, url,queued_urls):
             
         }}
         element_list.append(dict1) 
+def clear_arrays(queued_url,element_list):
+    queued_url.clear()
+    element_list.clear()
 
 # Main scrapper part of the code which works everything
 def main(respondlink, DOMAIN, headers_,queued_urls,element_list):
