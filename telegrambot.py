@@ -21,7 +21,7 @@ def start_scrap(message):
 def show_links(message):
     if os.path.isfile('data.json'):
         bot.reply_to(message, "Here are some links I have found while scraping:")
-        for url in itertools.islice(get_links(visited_urls), 10) :
+        for url in itertools.islice(get_links(visited_urls), 21) :
             bot.reply_to(message, url)
     else:
         bot.reply_to(message, "There are no links, please first try scrapping using \scrap command")

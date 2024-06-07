@@ -76,7 +76,7 @@ def scrap_links(respondlink,DOMAIN,headers_,queued_urls):
     # Scrap links that belong to each post
     responses = requests.get(respondlink,headers=headers_)
     soup = BeautifulSoup(responses.text, 'lxml')
-    soup_divs = soup.find_all('a', href=True, class_ = "css-16vl3c1 e1x0p3r10" )
+    soup_divs = soup.find_all('a', href=True, class_ = "css-16vl3c1 e17g0c820" ) 
 
     # Fix every link and add it to the list
     for listing in soup_divs:
@@ -98,8 +98,8 @@ def scrap_url(url):
 
 def scrap_postinfo(soup):
     # Scrap Tags which contain name of the post and pricing
-    url_tags = soup.find_all('header', class_ = "css-vutdsw efcnut33" )
-    url_tags.append(soup.find('header', class_ = "css-1qz5jgi efcnut36" ))
+    url_tags = soup.find_all('header', class_ = "css-vutdsw e1j8g12x3" ) 
+    url_tags.append(soup.find('header', class_ = "css-1qz5jgi e1j8g12x6" ))
     return url_tags[0]
 
 def scrap_roominfo(soup):
@@ -130,7 +130,10 @@ def scrap_area_info(soup):
 
 def scrap_name(tag):
     # This scraps the name of the post
-    return unidecode(tag.h1.contents[0])
+    try:
+        return unidecode(tag.h1.contents[0])
+    except:
+        pass
 
 def scrap_price(tag):
     # This scraps the price of the post
